@@ -1,0 +1,182 @@
+version: '3'
+
+services:
+  ubuntu-16.04:
+    image: mini-env/ubuntu-16.04
+    container_name: mini-env_ubuntu-16.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/16.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62160:22'
+    expose:
+      - '22'
+
+  ubuntu-17.04:
+    image: mini-env/ubuntu-17.04
+    container_name: mini-env_ubuntu-17.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/17.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62170:22'
+    expose:
+      - '22'
+
+  ubuntu-17.10:
+    image: mini-env/ubuntu-17.10
+    container_name: mini-env_ubuntu-17.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/17.10/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62171:22'
+    expose:
+      - '22'
+
+  ubuntu-18.04:
+    image: mini-env/ubuntu-18.04
+    container_name: mini-env_ubuntu-18.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/18.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62180:22'
+    expose:
+      - '22'
+
+  ubuntu-18.10:
+    image: mini-env/ubuntu-18.10
+    container_name: mini-env_ubuntu-18.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/18.10/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62181:22'
+    expose:
+      - '22'
+
+  ubuntu-19.04:
+    image: mini-env/ubuntu-19.04
+    container_name: mini-env_ubuntu-19.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/19.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62190:22'
+    expose:
+      - '22'
+
+  ubuntu-19.10:
+    image: mini-env/ubuntu-19.10
+    container_name: mini-env_ubuntu-19.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/19.10/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62191:22'
+    expose:
+      - '22'
+
+  ubuntu-20.04:
+    image: mini-env/ubuntu-20.04
+    container_name: mini-env_ubuntu-20.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/20.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62200:22'
+    expose:
+      - '22'
+
+  ubuntu-20.10:
+    image: mini-env/ubuntu-20.10
+    container_name: mini-env_ubuntu-20.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/20.10/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62201:22'
+    expose:
+      - '22'
+
+  ubuntu-21.04:
+    image: mini-env/ubuntu-21.04
+    container_name: mini-env_ubuntu-21.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/21.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62210:22'
+    expose:
+      - '22'
+
+  ubuntu-22.04:
+    image: mini-env/ubuntu-22.04
+    container_name: mini-env_ubuntu-22.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/22.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62220:22'
+    expose:
+      - '22'
+
+  ubuntu-22.10:
+    image: mini-env/ubuntu-22.10
+    container_name: mini-env_ubuntu-22.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/22.10/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '62221:22'
+    expose:
+      - '22'
