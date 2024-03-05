@@ -2,181 +2,225 @@ version: '3'
 
 services:
   ubuntu-16.04:
-    image: mini-env/ubuntu-16.04
+    image: mini-env:ubuntu-16.04
     container_name: mini-env_ubuntu-16.04
     build:
       context: ./
-      dockerfile: ./ubuntu/16.04/Dockerfile
+      dockerfile: ./build/ubuntu/lts/16.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62160:22'
+      - '31604:22'
     expose:
       - '22'
 
   ubuntu-17.04:
-    image: mini-env/ubuntu-17.04
+    image: mini-env:ubuntu-17.04
     container_name: mini-env_ubuntu-17.04
     build:
       context: ./
-      dockerfile: ./ubuntu/17.04/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/17.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62170:22'
+      - '31704:22'
     expose:
       - '22'
 
   ubuntu-17.10:
-    image: mini-env/ubuntu-17.10
+    image: mini-env:ubuntu-17.10
     container_name: mini-env_ubuntu-17.10
     build:
       context: ./
-      dockerfile: ./ubuntu/17.10/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/17.10/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62171:22'
+      - '31710:22'
     expose:
       - '22'
 
   ubuntu-18.04:
-    image: mini-env/ubuntu-18.04
+    image: mini-env:ubuntu-18.04
     container_name: mini-env_ubuntu-18.04
     build:
       context: ./
-      dockerfile: ./ubuntu/18.04/Dockerfile
+      dockerfile: ./build/ubuntu/lts/18.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62180:22'
+      - '31804:22'
     expose:
       - '22'
 
   ubuntu-18.10:
-    image: mini-env/ubuntu-18.10
+    image: mini-env:ubuntu-18.10
     container_name: mini-env_ubuntu-18.10
     build:
       context: ./
-      dockerfile: ./ubuntu/18.10/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/18.10/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62181:22'
+      - '31810:22'
     expose:
       - '22'
 
   ubuntu-19.04:
-    image: mini-env/ubuntu-19.04
+    image: mini-env:ubuntu-19.04
     container_name: mini-env_ubuntu-19.04
     build:
       context: ./
-      dockerfile: ./ubuntu/19.04/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/19.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62190:22'
+      - '31904:22'
     expose:
       - '22'
 
   ubuntu-19.10:
-    image: mini-env/ubuntu-19.10
+    image: mini-env:ubuntu-19.10
     container_name: mini-env_ubuntu-19.10
     build:
       context: ./
-      dockerfile: ./ubuntu/19.10/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/19.10/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62191:22'
+      - '31910:22'
     expose:
       - '22'
 
   ubuntu-20.04:
-    image: mini-env/ubuntu-20.04
+    image: mini-env:ubuntu-20.04
     container_name: mini-env_ubuntu-20.04
     build:
       context: ./
-      dockerfile: ./ubuntu/20.04/Dockerfile
+      dockerfile: ./build/ubuntu/lts/20.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62200:22'
+      - '32004:22'
     expose:
       - '22'
 
   ubuntu-20.10:
-    image: mini-env/ubuntu-20.10
+    image: mini-env:ubuntu-20.10
     container_name: mini-env_ubuntu-20.10
     build:
       context: ./
-      dockerfile: ./ubuntu/20.10/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/20.10/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62201:22'
+      - '32010:22'
     expose:
       - '22'
 
   ubuntu-21.04:
-    image: mini-env/ubuntu-21.04
+    image: mini-env:ubuntu-21.04
     container_name: mini-env_ubuntu-21.04
     build:
       context: ./
-      dockerfile: ./ubuntu/21.04/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/21.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62210:22'
+      - '32104:22'
     expose:
       - '22'
 
   ubuntu-22.04:
-    image: mini-env/ubuntu-22.04
+    image: mini-env:ubuntu-22.04
     container_name: mini-env_ubuntu-22.04
     build:
       context: ./
-      dockerfile: ./ubuntu/22.04/Dockerfile
+      dockerfile: ./build/ubuntu/lts/22.04/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62220:22'
+      - '32204:22'
     expose:
       - '22'
 
   ubuntu-22.10:
-    image: mini-env/ubuntu-22.10
+    image: mini-env:ubuntu-22.10
     container_name: mini-env_ubuntu-22.10
     build:
       context: ./
-      dockerfile: ./ubuntu/22.10/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/22.10/Dockerfile
     volumes:
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
-      - '62221:22'
+      - '32210:22'
+    expose:
+      - '22'
+
+  ubuntu-23.04:
+    image: mini-env:ubuntu-23.04
+    container_name: mini-env_ubuntu-23.04
+    build:
+      context: ./
+      dockerfile: ./build/ubuntu/non-lts/23.04/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./share:/share
+      - ./ssh:/root/.ssh
+    ports:
+      - '32304:22'
+    expose:
+      - '22'
+
+  ubuntu-23.10:
+    image: mini-env:ubuntu-23.10
+    container_name: mini-env_ubuntu-23.10
+    build:
+      context: ./
+      dockerfile: ./build/ubuntu/non-lts/23.10/Dockerfile
+    volumes:
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./share:/share
+      - ./ssh:/root/.ssh
+    ports:
+      - '32310:22'
     expose:
       - '22'

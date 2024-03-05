@@ -1,31 +1,55 @@
 #!/usr/bin/env bash
-set -x
+# set -x
 
-# init
-mkdir ./deps
-mkdir ./ssh
+function sync-git-repo() {
+    url="$1"
+    path="$2"
+    if [ -z "$path" ]; then
+        path=$(basename "$url")
+    fi
+
+    echo ">>> sync '$url' -> '$path'"
+
+    if [ -d "$path/.git" ]; then
+        pushd "$path" >/dev/null || return 0
+        git pull
+        popd >/dev/null || return 0
+    else
+        git clone "$url" "$path"
+    fi
+
+    printf "\n"
+}
+
+### init ###
+
 mkdir -p ./config/tmux/plugins
+mkdir -p ./config/tmux/themes
+mkdir -p ./deps/python-package
 mkdir -p ./docker/tools/gdb/plugins
+mkdir -p ./share
+mkdir -p ./ssh
 echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
-# download gdb plugins
-pushd ./docker/tools/gdb/plugins/
-curl -C - https://raw.githubusercontent.com/hugsy/gef/master/gef.py -o gef.py
-git clone https://github.com/pwndbg/pwndbg
-git clone https://github.com/longld/peda
-git clone https://github.com/scwuaptx/Pwngdb
-popd
+### download ###
 
-# download tmux plugins
-pushd ./config/tmux/plugins/
-git clone https://github.com/thewtex/tmux-mem-cpu-load
-git clone https://github.com/tmux-plugins/tmux-prefix-highlight
-git clone https://github.com/tmux-plugins/tmux-sensible
-git clone https://github.com/tmux-plugins/tmux-sidebar
-git clone https://github.com/tmux-plugins/tmux-yank
-git clone https://github.com/tmux-plugins/tpm
+# @ tmux plugins
+pushd ./config/tmux/plugins/ >/dev/null
+sync-git-repo https://github.com/thewtex/tmux-mem-cpu-load
+sync-git-repo https://github.com/tmux-plugins/tmux-prefix-highlight
+sync-git-repo https://github.com/tmux-plugins/tmux-sensible
+sync-git-repo https://github.com/tmux-plugins/tmux-sidebar
+sync-git-repo https://github.com/tmux-plugins/tmux-yank
+sync-git-repo https://github.com/tmux-plugins/tpm
+popd >/dev/null
 
-cd tmux-mem-cpu-load
-cmake .
+### compile ###
+
+# @ tmux-mem-cpu-load
+echo ">>> compiling tmux-mem-cpu-load ..."
+pushd ./config/tmux/plugins/tmux-mem-cpu-load >/dev/null
+[ -e "./tmux-mem-cpu-load" ] && rm ./tmux-mem-cpu-load
+cmake -DCMAKE_CXX_FLAGS="-static" .
 make -j16
-popd
+popd >/dev/null
+printf "\n"
